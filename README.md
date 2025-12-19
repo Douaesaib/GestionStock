@@ -83,6 +83,3 @@ The output will be in the `dist` directory.
 - `src/App.css` & `src/index.css`: Global and component-level styles.
 - `src/assets/`: Static assets (images, icons).
 
-## License
-
-[Add License Here]
