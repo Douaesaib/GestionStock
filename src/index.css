@@ -1,0 +1,176 @@
+/* Native iOS App Styling */
+
+/* CSS Reset for Body */
+/* CSS Reset for Body */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a202c;
+  /* Darker background for desktop contrast */
+  display: flex;
+  justify-content: center;
+  /* Center horizontally */
+  min-height: 100vh;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+/* Root Container */
+#root {
+  width: 100%;
+  max-width: 500px;
+  /* Force mobile width even on Mac */
+  background-color: #f7fafc;
+  /* Light background for the app itself */
+  min-height: 100vh;
+  position: relative;
+  /* SAFE AREA FIX FOR IPHONE NOTCH */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  /* Stronger shadow for depth */
+}
+
+/* Allow text selection in input fields and textareas */
+input,
+textarea,
+[contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Remove Tap Highlight on All Interactive Elements */
+button,
+a,
+[role="button"],
+[onclick] {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* Safe Area Support for iPhone Notch and Home Bar */
+.safe-area-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Centered Content Wrapper */
+.content-wrapper {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Scrollable Content Area */
+.scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Base Typography */
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  color: #213547;
+  background-color: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default button styles */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus,
+button:focus-visible {
+  outline: none;
+}
+
+/* Prevent pull-to-refresh on iOS */
+body {
+  overscroll-behavior-y: none;
+}
+
+/* Spinner animation for loading states */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Print Styling */
+@media print {
+  body>* {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    display: block !important;
+  }
+
+  .receipt-modal-overlay {
+    position: static !important;
+    background: none !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+
+  .receipt-modal-content {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
